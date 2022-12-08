@@ -43,20 +43,49 @@ func handler(w http.ResponseWriter, req *http.Request) {
 
 func play(input ArenaUpdate) (response string) {
 	log.Printf("IN: %#v", input)
-
+	var xs []int
+	var ys []int
+	var scores []int
 	posX := 0
 	posY := 0
+	// score := 0
 	dir := ""
 	url := input.Links.Self.Href
-	players := input.Arena.State
-
-	for player_url, player := range players {
+	state := input.Arena.State
+	// Check current status and location
+	for player_url, player := range state {
 
 		if player_url == url {
 			posX = player.X
 			posY = player.Y
+			// score = player.Score
 			dir = player.Direction
-			log.Printf("This is me %v, %v, %v", posX, posY, dir)
+		} else {
+			xs = append(xs, player.X)
+			ys = append(xs, player.Y)
+			scores = append(scores, player.Score)
+		}
+	}
+	// See if can to shoot
+	for i := 0; i < len(xs); i++ {
+		difX := xs[i] - posX
+		difY := ys[i] - posY
+		if dir == "N" {
+			if (difX == 0) && ((difY >= -3) && (difY < 0)) {
+				return "T"
+			}
+		} else if dir == "O" {
+			if (difY == 0) && ((difX >= -3) && (difX < 0)) {
+				return "T"
+			}
+		} else if dir == "S" {
+			if (difX == 0) && ((difY <= 3) && (difY > 0)) {
+				return "T"
+			}
+		} else if dir == "E" {
+			if (difY == 0) && ((difX <= 3) && (difX > 0)) {
+				return "T"
+			}
 		}
 	}
 
