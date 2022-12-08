@@ -60,7 +60,7 @@ func play(input ArenaUpdate) (response string) {
 			posY = player.Y
 			// score = player.Score
 			dir = player.Direction
-			println("My position is %v. %v and I'm looking %v", posX, posY, dir)
+			println("My position is", posX, " ", posY, "and I'm looking", dir)
 		} else {
 			xs = append(xs, player.X)
 			ys = append(xs, player.Y)
