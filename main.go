@@ -73,22 +73,22 @@ func play(input ArenaUpdate) (response string) {
 		difY := ys[i] - posY
 		if dir == "N" {
 			if (difX == 0) && ((difY >= -3) && (difY < 0)) {
-				println("Shoot, difX %v, difY %v, xs[i] %v, xy[i] %v", difX, difY, xs[i], ys[i])
+				println("Shoot, difX", difX, "difY", difY, "xs[i]", xs[i], "xy[i]", ys[i])
 				return "T"
 			}
 		} else if dir == "W" {
 			if (difY == 0) && ((difX >= -3) && (difX < 0)) {
-				println("Shoot, difX %v, difY %v, xs[i] %v, xy[i] %v", difX, difY, xs[i], ys[i])
+				println("Shoot, difX", difX, "difY", difY, "xs[i]", xs[i], "xy[i]", ys[i])
 				return "T"
 			}
 		} else if dir == "S" {
 			if (difX == 0) && ((difY <= 3) && (difY > 0)) {
-				println("Shoot, difX %v, difY %v, xs[i] %v, xy[i] %v", difX, difY, xs[i], ys[i])
+				println("Shoot, difX", difX, "difY", difY, "xs[i]", xs[i], "xy[i]", ys[i])
 				return "T"
 			}
 		} else if dir == "E" {
 			if (difY == 0) && ((difX <= 3) && (difX > 0)) {
-				println("Shoot, difX %v, difY %v, xs[i] %v, xy[i] %v", difX, difY, xs[i], ys[i])
+				println("Shoot, difX", difX, "difY", difY, "xs[i]", xs[i], "xy[i]", ys[i])
 				return "T"
 			}
 		}
