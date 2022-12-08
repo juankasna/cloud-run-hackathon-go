@@ -53,7 +53,7 @@ func play(input ArenaUpdate) (response string) {
 	url := input.Links.Self.Href
 	state := input.Arena.State
 	dimensions := input.Arena.Dimensions
-	println("The dimensions are: ", dimensions)
+	println("The dimensions are: %v", dimensions)
 	// Check current status and location
 	for player_url, player := range state {
 
