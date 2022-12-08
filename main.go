@@ -71,6 +71,11 @@ func play(input ArenaUpdate) (response string) {
 			scores = append(scores, player.Score)
 		}
 	}
+	// Run method!
+	if wasHit {
+		return "F"
+	}
+
 	// See if can to shoot
 	for i := 0; i < len(xs); i++ {
 		difX := xs[i] - posX
