@@ -44,9 +44,25 @@ func handler(w http.ResponseWriter, req *http.Request) {
 func play(input ArenaUpdate) (response string) {
 	log.Printf("IN: %#v", input)
 
+	posX := 0
+	posY := 0
+	dir := ""
+	url := input.Links.Self.Href
+	players := input.Arena.State
+
+	for player_url, player := range players {
+
+		if player_url == url {
+			posX = player.X
+			posY = player.Y
+			dir = player.Direction
+			log.Printf("This is me %v, %v, %v", posX, posY, dir)
+		}
+	}
+
 	commands := []string{"F", "R", "L", "T"}
 	rand := rand2.Intn(4)
-	
+
 	// TODO add your implementation here to replace the random response
 	return commands[rand]
 }
