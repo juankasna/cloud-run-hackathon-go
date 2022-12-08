@@ -52,6 +52,8 @@ func play(input ArenaUpdate) (response string) {
 	dir := ""
 	url := input.Links.Self.Href
 	state := input.Arena.State
+	dimensions := input.Arena.Dimensions
+	println("The dimensions are: ", dimensions)
 	// Check current status and location
 	for player_url, player := range state {
 
@@ -96,7 +98,8 @@ func play(input ArenaUpdate) (response string) {
 
 	commands := []string{"F", "R", "L", "T"}
 	rand := rand2.Intn(4)
-	println("Rand: %v", commands[rand])
+	returning := commands[rand]
+	println("Rand: ", returning)
 	// TODO add your implementation here to replace the random response
-	return commands[rand]
+	return returning
 }
