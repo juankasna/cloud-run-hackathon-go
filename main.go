@@ -71,19 +71,27 @@ func play(input ArenaUpdate) (response string) {
 		difX := xs[i] - posX
 		difY := ys[i] - posY
 		if dir == "N" {
+			println("Looking North")
 			if (difX == 0) && ((difY >= -3) && (difY < 0)) {
+				println("Shoot")
 				return "T"
 			}
-		} else if dir == "O" {
+		} else if dir == "W" {
+			println("Looking West")
 			if (difY == 0) && ((difX >= -3) && (difX < 0)) {
+				println("Shoot")
 				return "T"
 			}
 		} else if dir == "S" {
+			println("Looking South")
 			if (difX == 0) && ((difY <= 3) && (difY > 0)) {
+				println("Shoot")
 				return "T"
 			}
 		} else if dir == "E" {
+			println("Looking East")
 			if (difY == 0) && ((difX <= 3) && (difX > 0)) {
+				println("Shoot")
 				return "T"
 			}
 		}
