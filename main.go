@@ -58,6 +58,11 @@ func play(input ArenaUpdate) (response string) {
 	for player_url, player := range state {
 
 		if player_url == url {
+			// run method
+			if player.WasHit == true {
+				println("Ruuuuuuuuunnnnnn!!!!!!")
+				return "R"
+			}
 			posX = player.X
 			posY = player.Y
 			// score = player.Score
