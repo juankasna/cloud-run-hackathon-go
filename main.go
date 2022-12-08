@@ -48,23 +48,20 @@ func play(input ArenaUpdate) (response string) {
 	var scores []int
 	posX := 0
 	posY := 0
+	wasHit := false
 	// score := 0
 	dir := ""
 	url := input.Links.Self.Href
 	state := input.Arena.State
 	dimensions := input.Arena.Dimensions
-	println("The dimensions are: %v", dimensions)
+	fmt.Printf("The dimensions are: %v", dimensions)
 	// Check current status and location
 	for player_url, player := range state {
 
 		if player_url == url {
-			// run method
-			if player.WasHit == true {
-				println("Ruuuuuuuuunnnnnn!!!!!!")
-				return "R"
-			}
 			posX = player.X
 			posY = player.Y
+			wasHit = player.WasHit
 			// score = player.Score
 			dir = player.Direction
 			println("My position is", posX, " ", posY, "and I'm looking", dir)
@@ -73,6 +70,10 @@ func play(input ArenaUpdate) (response string) {
 			ys = append(ys, player.Y)
 			scores = append(scores, player.Score)
 		}
+	}
+	// run method
+	if wasHit {
+		return "F"
 	}
 	// See if can to shoot
 	for i := 0; i < len(xs); i++ {
