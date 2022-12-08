@@ -60,6 +60,7 @@ func play(input ArenaUpdate) (response string) {
 			posY = player.Y
 			// score = player.Score
 			dir = player.Direction
+			println("My position is %v. %v and I'm looking %v", posX, posY, dir)
 		} else {
 			xs = append(xs, player.X)
 			ys = append(xs, player.Y)
@@ -71,27 +72,23 @@ func play(input ArenaUpdate) (response string) {
 		difX := xs[i] - posX
 		difY := ys[i] - posY
 		if dir == "N" {
-			println("Looking North")
 			if (difX == 0) && ((difY >= -3) && (difY < 0)) {
-				println("Shoot")
+				println("Shoot, difX %v, difY %v, xs[i] %v, xy[i] %v", difX, difY, xs[i], ys[i])
 				return "T"
 			}
 		} else if dir == "W" {
-			println("Looking West")
 			if (difY == 0) && ((difX >= -3) && (difX < 0)) {
-				println("Shoot")
+				println("Shoot, difX %v, difY %v, xs[i] %v, xy[i] %v", difX, difY, xs[i], ys[i])
 				return "T"
 			}
 		} else if dir == "S" {
-			println("Looking South")
 			if (difX == 0) && ((difY <= 3) && (difY > 0)) {
-				println("Shoot")
+				println("Shoot, difX %v, difY %v, xs[i] %v, xy[i] %v", difX, difY, xs[i], ys[i])
 				return "T"
 			}
 		} else if dir == "E" {
-			println("Looking East")
 			if (difY == 0) && ((difX <= 3) && (difX > 0)) {
-				println("Shoot")
+				println("Shoot, difX %v, difY %v, xs[i] %v, xy[i] %v", difX, difY, xs[i], ys[i])
 				return "T"
 			}
 		}
@@ -99,7 +96,7 @@ func play(input ArenaUpdate) (response string) {
 
 	commands := []string{"F", "R", "L", "T"}
 	rand := rand2.Intn(4)
-
+	println("Rand: %v", commands[rand])
 	// TODO add your implementation here to replace the random response
 	return commands[rand]
 }
