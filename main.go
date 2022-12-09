@@ -51,7 +51,7 @@ func play(input ArenaUpdate) (response string) {
 	var scores []int
 	posX := 0
 	posY := 0
-	wasHit := false
+	// wasHit := false
 	// score := 0
 	dir := ""
 	url := input.Links.Self.Href
@@ -66,7 +66,7 @@ func play(input ArenaUpdate) (response string) {
 			posY = player.Y
 			// score = player.Score
 			dir = player.Direction
-			wasHit = player.WasHit
+			// wasHit = player.WasHit
 			println("My position is", posX, " ", posY, "and I'm looking", dir)
 		} else {
 			xs = append(xs, player.X)
@@ -75,9 +75,9 @@ func play(input ArenaUpdate) (response string) {
 		}
 	}
 
-	if wasHit {
-		return canMove(posX, posY, xs, ys, dir)
-	}
+	// if wasHit {
+	// 	return canMove(posX, posY, xs, ys, dir)
+	// }
 
 	// See if can to shoot
 	for i := 0; i < len(xs); i++ {
@@ -200,64 +200,64 @@ func Abs(x int) int {
 	return x
 }
 
-func canMove(posx int, posy int, xs []int, ys []int, direction string) string {
-	up := true
-	down := true
-	right := true
-	left := true
+// func canMove(posx int, posy int, xs []int, ys []int, direction string) string {
+// 	up := true
+// 	down := true
+// 	right := true
+// 	left := true
 
-	for i := 0; i < len(xs); i++ {
-		if xs[i] == posx && ys[i] == (posy-1) {
-			up = false
-		} else if xs[i] == (posx-1) && ys[i] == (posy) {
-			left = false
-		} else if xs[i] == (posx) && ys[i] == (posy+1) {
-			right = false
-		} else if xs[i] == (posx+1) && ys[i] == (posy) {
-			down = false
-		}
-	}
+// 	for i := 0; i < len(xs); i++ {
+// 		if xs[i] == posx && ys[i] == (posy-1) {
+// 			up = false
+// 		} else if xs[i] == (posx-1) && ys[i] == (posy) {
+// 			left = false
+// 		} else if xs[i] == (posx) && ys[i] == (posy+1) {
+// 			right = false
+// 		} else if xs[i] == (posx+1) && ys[i] == (posy) {
+// 			down = false
+// 		}
+// 	}
 
-	if direction == "N" {
-		if up {
-			return "F"
-		} else if right {
-			return "R"
-		} else if left {
-			return "L"
-		} else if down {
-			return "R"
-		}
-	} else if direction == "W" {
-		if left {
-			return "F"
-		} else if up {
-			return "R"
-		} else if down {
-			return "L"
-		} else if right {
-			return "R"
-		}
-	} else if direction == "S" {
-		if down {
-			return "F"
-		} else if right {
-			return "L"
-		} else if left {
-			return "R"
-		} else if up {
-			return "R"
-		}
-	} else if direction == "E" {
-		if right {
-			return "F"
-		} else if up {
-			return "L"
-		} else if down {
-			return "R"
-		} else if left {
-			return "R"
-		}
-	}
-	return "F"
-}
+// 	if direction == "N" {
+// 		if up {
+// 			return "F"
+// 		} else if right {
+// 			return "R"
+// 		} else if left {
+// 			return "L"
+// 		} else if down {
+// 			return "R"
+// 		}
+// 	} else if direction == "W" {
+// 		if left {
+// 			return "F"
+// 		} else if up {
+// 			return "R"
+// 		} else if down {
+// 			return "L"
+// 		} else if right {
+// 			return "R"
+// 		}
+// 	} else if direction == "S" {
+// 		if down {
+// 			return "F"
+// 		} else if right {
+// 			return "L"
+// 		} else if left {
+// 			return "R"
+// 		} else if up {
+// 			return "R"
+// 		}
+// 	} else if direction == "E" {
+// 		if right {
+// 			return "F"
+// 		} else if up {
+// 			return "L"
+// 		} else if down {
+// 			return "R"
+// 		} else if left {
+// 			return "R"
+// 		}
+// 	}
+// 	return "F"
+// }
